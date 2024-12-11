@@ -32,35 +32,14 @@ optimize_mirrors() {
     log_action "Starting mirror optimization."
     ./scripts/mirror_optimize.sh && log_action "Mirror optimization completed." || log_action "Mirror optimization failed."
 }
-
 cleanup_packages() {
     log_action "Starting cleanup."
     ./scripts/cleanup.sh && log_action "Cleanup completed." || log_action "Cleanup failed."
 }
-
 update_system() {
     log_action "Starting system update."
     ./scripts/update.sh && log_action "System update completed." || log_action "System update failed."
 }
-
-if [[ "$1" == "--help" || $# -eq 0 ]]; then
-    show_help
-elif [[ "$1" == "-mi" ]]; then
-    check_root
-    optimize_mirrors
-    exit 0
-elif [[ "$1" == "-pc" ]]; then
-    check_root
-    cleanup_packages
-    exit 0
-elif [[ "$1" == "-up" ]]; then
-    check_root
-    update_system
-    exit 0
-  elif [["$1" == "i"]]; then
-    check_root
-    show_menu
-fi
 show_menu() {
 source ./scripts/ascii.sh
 echo -e "\e[1;34mPlease choose an option:\e[0m"
@@ -84,4 +63,26 @@ case $choice in
     ;;
 esac
 }
+if [[ $# -eq 0 ]]; then
+    show_help
+    exit 0
+fi
+if [[ "$1" == "--help" ]]; then
+    show_help
+elif [[ "$1" == "-mi" ]]; then
+    check_root
+    optimize_mirrors
+    exit 0
+elif [[ "$1" == "-pc" ]]; then
+    check_root
+    cleanup_packages
+    exit 0
+elif [[ "$1" == "-up" ]]; then
+    check_root
+    update_system
+    exit 0
+elif [[ "$1" == "-i" ]]; then
+    check_root
+    show_menu
+fi
 
