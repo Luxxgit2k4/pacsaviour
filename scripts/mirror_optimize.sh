@@ -1,14 +1,25 @@
 #!/bin/bash
-log_file="/var/log/mirror_optimize.log"
-log_action() {
-  echo "$(date +%F_%T) - $1" >> "$log_file";
-}
-
 if ! ping -c 1 google.com &>/dev/null; then
   echo "No internet connection detected. Please check your network settings.";
   exit 1;
 fi
+if ! command -v reflector &>/dev/null; then
+  echo "Reflector is not installed"
+  read -p "Do you want to install reflector (y/n, default: y): " ref_choice
+  ref_choice=${ref_choice:-y}
+  if [[ "$ref_choice" == "y" || "$ref_choice" == "Y" ]]; then
+    sudo pacman -S reflector
+  else
+    echo "Exiting..."
+   exit 1;
+  fi
+fi
+echo -e "\n"
 
+log_file="/var/log/mirror_optimize.log"
+log_action() {
+  echo "$(date +%F_%T) - $1" >> "$log_file";
+}
 backup_file="/etc/pacman.d/mirrorlist.backup_$(date +%F_%T)"
 cp /etc/pacman.d/mirrorlist "$backup_file"
 log_action "Mirror list backed up to $backup_file"
