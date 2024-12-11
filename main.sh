@@ -14,11 +14,18 @@ show_help() {
     echo "  -mi          Optimize Mirrors"
     echo "  -pc          Cleanup Package Cache and Orphans"
     echo "  -up          Update System"
-    echo "  --help       Show this help message"
+    echo "  --help       Show this help message [Default: pacsaviour]"
     echo "Every option requires root privileges to run."
     echo
     echo "Interactive Menu:"
     echo "Use the interactive menu to enter your choice and perform the task."
+    echo
+    echo "Log files:"
+    echo "pacsaviour log file is stored in /var/log/pacsaviour.log"
+    echo "Mirror optimization log file is stored in /var/log/mirror_optimize.log"
+    echo
+    echo "Backup:"
+    echo "The default mirrors that you had before running the tool is backed up in the /etc/pacman.d/mirrorlist.backup"
     exit 0
 }
 check_root() {
