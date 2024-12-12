@@ -1,7 +1,7 @@
 
 # PacSaviour
 
-A saviour who manages youor package.
+A saviour who manages your package.
 
 ---
 
