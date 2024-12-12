@@ -35,12 +35,17 @@ PacSaviour is available on the Arch User Repository (AUR). You can install it us
    yay -S pacsaviour
    ```
 
-### Using paru
-1. Install PacSaviour:
-   ```bash
-   paru -S pacsaviour
-   ```
+2. Manual installation:
 
+   Clone this repository
+```bash
+git clone https://github.com/Luxxgit2k4/pacsaviour  
+```
+And make all the .sh files executable using chmod +x.
+Then run the main.sh with as 
+```bash
+./main.sh
+```
 ---
 
 ## Usage
