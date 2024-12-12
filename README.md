@@ -8,7 +8,7 @@ A saviour which saves your time.
 ## Introduction
 
 PacSaviour automates your command line operations which  aims to make system maintenance on Arch Linux hassle-free by:
-- **Optimizing Mirrors**: Automatically selects the best 10 fastest mirrors, based on the user's choice with their desired country.
+- **Optimizing Mirrors**: Automatically selects the best 10 fastest mirrors, based on the user's choice with their desired country. Your previous mirrorlist is backed up and stored, so you can revert back into it.
 - **Cleaning Up Packages**: Removes unused cache files and orphaned packages.
 - **Updating the System**: Ensures your system is always up-to-date.
 
