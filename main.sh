@@ -6,7 +6,7 @@ log_action() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $message" >> "$log_file"
 }
 show_help() {
-    echo "PacSaviour - A Package Optimization Tool for optimizing mirrors, cleaning packages and updating the system"
+    echo "PacSaviour - A Package Optimization Tool for optimizing mirrors, cleaning and updating the system"
     echo
     echo "Usage: pacsaviour [options]"
     echo "Options:"
