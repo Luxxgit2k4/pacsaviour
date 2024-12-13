@@ -21,7 +21,7 @@ With PacSaviour, you can focus more on using your system and less on maintaining
 Before installing and using PacSaviour, ensure you have the following:
 - **Arch Linux or Arch-based Distribution**: The tool is specifically built for Arch-based systems.
 - **Root Privileges**: The script requires `sudo` to perform system-level operations.
-- **Reflector**: Make sure reflector is installed which is used for optimizing the mirros.
+- **Reflector**: Make sure reflector is installed which is used for optimizing the mirros. If it's not there it will be installed as a dependency along with the pacsaviour.
 
 ---
 
