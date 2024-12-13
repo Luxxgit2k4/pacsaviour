@@ -30,19 +30,19 @@ Before installing and using PacSaviour, ensure you have the following:
 PacSaviour is available on the Arch User Repository (AUR). You can install it using an AUR helper such as `yay` or `paru`.
 
 ### Using yay
-1. Install PacSaviour:
+ Install PacSaviour:
    ```bash
    yay -S pacsaviour
    ```
 
-2. Manual installation:
+### Manual installation:
 
    Clone this repository
 ```bash
 git clone https://github.com/Luxxgit2k4/pacsaviour  
 ```
 And make all the .sh files executable using chmod +x.
-Then run the main.sh with 
+Then run the main.sh, you will see the help menu and using the commands from the help you can run the project.
 ```bash
 ./main.sh
 ```
