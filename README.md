@@ -1,14 +1,14 @@
 
 # PacSaviour
 
-A saviour which saves your time.
+A saviour who manages your package.
 
 ---
 
 ## Introduction
 
 PacSaviour automates your command line operations which  aims to make system maintenance on Arch Linux hassle-free by:
-- **Optimizing Mirrors**: Automatically selects the best 10 fastest mirrors, based on the user's choice with their desired country.
+- **Optimizing Mirrors**: Automatically selects the best 10 fastest mirrors, based on the user's choice with their desired country. Your previous mirrorlist is backed up and stored, so you can revert back into it.
 - **Cleaning Up Packages**: Removes unused cache files and orphaned packages.
 - **Updating the System**: Ensures your system is always up-to-date.
 
@@ -35,12 +35,17 @@ PacSaviour is available on the Arch User Repository (AUR). You can install it us
    yay -S pacsaviour
    ```
 
-### Using paru
-1. Install PacSaviour:
-   ```bash
-   paru -S pacsaviour
-   ```
+2. Manual installation:
 
+   Clone this repository
+```bash
+git clone https://github.com/Luxxgit2k4/pacsaviour  
+```
+And make all the .sh files executable using chmod +x.
+Then run the main.sh with 
+```bash
+./main.sh
+```
 ---
 
 ## Usage
