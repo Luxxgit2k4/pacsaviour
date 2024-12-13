@@ -1,12 +1,17 @@
 #!/bin/bash
-#source ./scripts/ascii.sh
 log_file="/var/log/pacsaviour.log"
+# Fixed to check whether the main.sh is running locally or after installing as aur package
+if [[ -d "./scripts" ]]; then
+    SCRIPT_DIR="./scripts"
+else
+    SCRIPT_DIR="/usr/lib/pacsaviour"
+fi
 log_action() {
     local message="$1"
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $message" >> "$log_file"
 }
 show_help() {
-    echo "PacSaviour - A Package Optimization Tool for optimizing mirrors, cleaning packages and updating the system"
+    echo "PacSaviour - A Package Optimization Tool for optimizing mirrors, cleaning and updating the system"
     echo
     echo "Usage: pacsaviour [options]"
     echo "Options:"
@@ -37,43 +42,44 @@ check_root() {
 }
 optimize_mirrors() {
     log_action "Starting mirror optimization."
-    ./scripts/mirror_optimize.sh && log_action "Mirror optimization completed." || log_action "Mirror optimization failed."
+    bash "$SCRIPT_DIR/mirror_optimize.sh" && log_action "Mirror optimization completed." || log_action "Mirror optimization failed."
 }
 cleanup_packages() {
     log_action "Starting cleanup."
-    ./scripts/cleanup.sh && log_action "Cleanup completed." || log_action "Cleanup failed."
+    bash "$SCRIPT_DIR/cleanup.sh" && log_action "Cleanup completed." || log_action "Cleanup failed."
 }
 update_system() {
     log_action "Starting system update."
-    ./scripts/update.sh && log_action "System update completed." || log_action "System update failed."
+    bash "$SCRIPT_DIR/update.sh" && log_action "System update completed." || log_action "System update failed."
 }
 show_menu() {
-source ./scripts/ascii.sh
-echo -e "\e[1;34mPlease choose an option:\e[0m"
-echo -e "\e[1;32m1. Optimize Mirrors\e[0m"
-echo -e "\e[1;32m2. Clean Up Packages\e[0m"
-echo -e "\e[1;32m3. Update System\e[0m"
-echo -e "\e[1;32m4. Exit\e[0m"
-read -p "Enter the option: " choice
-echo -e "\n"
-case $choice in
-  1) ./scripts/mirror_optimize.sh
-    ;;
-  2) ./scripts/cleanup.sh
-    ;;
-  3) ./scripts/update.sh
-    ;;
-  4) echo "Exiting..."
-    exit 0
-    ;;
-  *) echo "Invalid option"
-    ;;
-esac
+    source "$SCRIPT_DIR/ascii.sh"
+    echo -e "\e[1;34mPlease choose an option:\e[0m"
+    echo -e "\e[1;32m1. Optimize Mirrors\e[0m"
+    echo -e "\e[1;32m2. Clean Up Packages\e[0m"
+    echo -e "\e[1;32m3. Update System\e[0m"
+    echo -e "\e[1;32m4. Exit\e[0m"
+    read -p "Enter the option: " choice
+    echo -e "\n"
+    case $choice in
+      1) bash "$SCRIPT_DIR/mirror_optimize.sh"
+        ;;
+      2) bash "$SCRIPT_DIR/cleanup.sh"
+        ;;
+      3) bash "$SCRIPT_DIR/update.sh"
+        ;;
+      4) echo "Exiting..."
+        exit 0
+        ;;
+      *) echo "Invalid option"
+        ;;
+    esac
 }
 if [[ $# -eq 0 ]]; then
     show_help
     exit 0
 fi
+
 if [[ "$1" == "--help" ]]; then
     show_help
 elif [[ "$1" == "-mi" ]]; then
