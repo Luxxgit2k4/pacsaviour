@@ -1,5 +1,5 @@
 #!/bin/bash
-log_file="/var/log/pacsaviour.log"
+log_file="/var/log/pacsaviour.log"https://github.com/Luxxgit2k4/pacsaviour/blob/main/main.sh
 # Fixed to check whether the main.sh is running locally or after installing as aur package
 if [[ -d "./scripts" ]]; then
     SCRIPT_DIR="./scripts"
