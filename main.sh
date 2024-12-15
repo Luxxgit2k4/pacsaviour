@@ -1,11 +1,6 @@
 #!/bin/bash
 log_file="/var/log/pacsaviour.log"https://github.com/Luxxgit2k4/pacsaviour/blob/main/main.sh
-# Fixed to check whether the main.sh is running locally or after installing as aur package
-if [[ -d "./scripts" ]]; then
-    SCRIPT_DIR="./scripts"
-else
-    SCRIPT_DIR="/usr/lib/pacsaviour"
-fi
+kumar="/usr/lib/pacsaviour/"
 log_action() {
     local message="$1"
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $message" >> "$log_file"
@@ -42,18 +37,18 @@ check_root() {
 }
 optimize_mirrors() {
     log_action "Starting mirror optimization."
-    bash "$SCRIPT_DIR/mirror_optimize.sh" && log_action "Mirror optimization completed." || log_action "Mirror optimization failed."
+    bash "$kumar/mirror_optimize.sh" && log_action "Mirror optimization completed." || log_action "Mirror optimization failed."
 }
 cleanup_packages() {
     log_action "Starting cleanup."
-    bash "$SCRIPT_DIR/cleanup.sh" && log_action "Cleanup completed." || log_action "Cleanup failed."
+    bash "$kumar/cleanup.sh" && log_action "Cleanup completed." || log_action "Cleanup failed."
 }
 update_system() {
     log_action "Starting system update."
-    bash "$SCRIPT_DIR/update.sh" && log_action "System update completed." || log_action "System update failed."
+    bash "$kumar/update.sh" && log_action "System update completed." || log_action "System update failed."
 }
 show_menu() {
-    source "$SCRIPT_DIR/ascii.sh"
+    source "$kumar/ascii.sh"
     echo -e "\e[1;34mPlease choose an option:\e[0m"
     echo -e "\e[1;32m1. Optimize Mirrors\e[0m"
     echo -e "\e[1;32m2. Clean Up Packages\e[0m"
@@ -62,11 +57,11 @@ show_menu() {
     read -p "Enter the option: " choice
     echo -e "\n"
     case $choice in
-      1) bash "$SCRIPT_DIR/mirror_optimize.sh"
+      1) bash "$kumar/mirror_optimize.sh"
         ;;
-      2) bash "$SCRIPT_DIR/cleanup.sh"
+      2) bash "$kumar/cleanup.sh"
         ;;
-      3) bash "$SCRIPT_DIR/update.sh"
+      3) bash "$kumar/update.sh"
         ;;
       4) echo "Exiting..."
         exit 0
