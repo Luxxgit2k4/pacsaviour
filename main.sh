@@ -1,5 +1,5 @@
 #!/bin/bash
-log_file="/var/log/pacsaviour.log"https://github.com/Luxxgit2k4/pacsaviour/blob/main/main.sh
+log_file="/var/log/pacsaviour.log"
 kumar="/usr/lib/pacsaviour/"
 log_action() {
     local message="$1"
