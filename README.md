@@ -34,11 +34,11 @@ PacSaviour is available on the Arch User Repository (AUR). You can install it us
    ```bash
    yay -S pacsaviour
    ```
-
+Running the command 'pacsaviour' will open the help menu.
 ### Manual installation:
 
    Clone this repository
-```bash
+```bash 
 git clone https://github.com/Luxxgit2k4/pacsaviour  
 ```
 And make all the .sh files executable using chmod +x.
