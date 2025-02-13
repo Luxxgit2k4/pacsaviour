@@ -40,7 +40,7 @@ fi
 fi
 
 echo "Optimizing mirror list..."
-sudo reflector --verbose --latest 10 --sort rate --exclude thaller.ws --connection-timeout 10 $country_filter --save /etc/pacman.d/mirrorlist
+sudo reflector --verbose --latest 30 --sort rate --exclude thaller.ws --connection-timeout 10 $country_filter --save /etc/pacman.d/mirrorlist
 log_action "Mirror list optimized using reflector"
 echo -e "\n"
 echo "Mirror list updated successfully."
